@@ -52,8 +52,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         const initialLanguage = languages.find(l => l.abbr === abbr)
 
         if (initialLanguage) setLanguage(initialLanguage)
-        else Router.push('/screen')
-      } else Router.push('/screen')
+      }
       setLoaded(true)
     }
   }, [theme, language, languages])
