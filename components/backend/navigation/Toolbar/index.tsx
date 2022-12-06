@@ -12,45 +12,11 @@ export default function Toolbar() {
     const { account } = useAccountContext()
     const { open, setOpen } = useSideDrawerContext()
 
-    const [copiedId, setCopiedId] = useState(false)
-    const [copiedLink, setCopiedLink] = useState(false)
-
-    const copyId = () => {
-        setCopiedLink(false)
-        setCopiedId(true)
-        setTimeout(() => {
-            setCopiedId(false)
-        }, 5000);
-    }
-
-    const copyLink = () => {
-        setCopiedId(false)
-        setCopiedLink(true)
-        setTimeout(() => {
-            setCopiedLink(false)
-        }, 5000);
-    }
-
-    const idCopyIcon = <CopyToClipboard text={account?.aid!} onCopy={copyId}>
-        <div className="inline-block relative">
-            <img src="/images/backend/copy-id.svg" alt="Copy icon" className="inline-block cursor-pointer" />
-            <div className={classNames(copiedId ? 'opacity-100 scale-100' : 'opacity-0 scale-0', "bg-secondary-800 text-xs origin-top-right transition-all duration-200 text-white p-1 rounded absolute top-full mt-1 right-0")}>Copied</div>
-        </div>
-    </CopyToClipboard >
-
-    const LinkCopy = ({ children }: { children: ReactNode }) => <CopyToClipboard text='https://www.valyouae.com/ref=?FHKO57' onCopy={copyLink}>
-        <div className="inline-block relative">
-            <div className="cursor-pointer">{children}</div>
-            <div className={classNames(copiedLink ? 'opacity-100 scale-100' : 'opacity-0 scale-0', "bg-secondary-800 text-xs origin-top-right transition-all duration-200 text-white p-1 rounded absolute top-full mt-1 right-0")}>Copied</div>
-        </div>
-    </CopyToClipboard >
-
     return <header className="bg-white flex items-center sticky top-0 z-30">
         <div className="flex-1 flex items-center pl-[33px] pr-4 md:px-[42px]">
             <div className="cursor-pointer" onClick={() => setOpen(!open)}><Bars3BottomLeftIcon className='w-10 text-primary' /></div>
 
             <div className="flex ml-auto">
-                <div className="hidden lg:block mr-[42px]"><LinkCopy><div className="bg-secondary-500/10 rounded-lg py-2.5 px-[14px] flex md:items-center md:space-x-2.5 text-sm"><div>https://www.valyouae.com/ref=?FHKO57</div><ArrowTopRightOnSquareIcon className="text-green w-6" /></div></LinkCopy></div>
                 <div className="mr-5 md:mr-[51.69px]"><LanguageSelect /></div>
                 <div className="cursor-pointer relative z-0 group after:block after:absolute after:w-[12.72px] after:h-[12.72px] after:rounded-full after:bg-green after:top-0 after:right-0 mr-3">
                     <BellIcon className="w-[31px]" />
@@ -72,10 +38,6 @@ export default function Toolbar() {
         <div className="md:w-[300px] md:border-l border-secondary-700/10 h-[111px] md:h-[86px] flex items-center justify-between md:pl-3 pr-9">
             <div className="hidden md:block">
                 <div className="text-lg font-medium mb-1">{account?.first_name} {account?.last_name}</div>
-
-                <div>
-                    <span className="text-green">ID : <span className="font-bold">{account?.aid}</span></span> <span>{idCopyIcon}</span>
-                </div>
             </div>
 
             <div className="relative group">
@@ -97,12 +59,6 @@ export default function Toolbar() {
                         </div>
 
                         <div className="space-y-2.5 px-[13px]">
-                            <div className="flex cursor-pointer md:hidden items-center justify-between">
-                                <span className="text-green">ID : <span className="font-bold">{account?.aid}</span></span><span>{idCopyIcon}</span>
-                            </div>
-                            <div className="flex cursor-pointer lg:hidden items-center justify-between">
-                                <span className="text-night font-medium">Referal Link</span><span><LinkCopy><img src="/images/backend/copy-link.svg" alt="Copy icon" className="inline-block" /></LinkCopy></span>
-                            </div>
                             <div className="flex cursor-pointer items-center space-x-[7px]">
                                 <span><AdjustmentsHorizontalIcon className="w-4 opacity-20" /></span><span>Settings</span>
                             </div>

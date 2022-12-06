@@ -25,3 +25,7 @@
 .btn-night {
     @apply bg-night text-white hover:text-secondary-100 active:text-night/10 focus-visible:outline-night;
 }
+
+.btn-blue {
+    @apply bg-blue text-white hover:text-secondary-100 active:text-blue/10 focus-visible:outline-blue;
+}

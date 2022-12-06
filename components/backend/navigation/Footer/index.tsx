@@ -4,7 +4,7 @@ export default function Footer() {
             <div className="text-2xl font-bold mr-4">&copy;</div>
 
             <div className="text-lg">
-                Copyrights 2022. All rights reserved.  By <span className="text-primary font-bold">Valyou</span>
+                Copyrights 2022. Tous droits réservés par <span className="text-primary font-bold">Hiala</span>
             </div>
         </div>
     </footer>

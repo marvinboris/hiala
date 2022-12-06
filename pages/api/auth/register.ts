@@ -15,13 +15,11 @@ export default async function handler(
 ) {
     const { first_name, last_name, email, code, phone } = req.body
     try {
-        const user = await User.findOne({ where: { email } })
-        if (user) return res.status(401).json({ status: Status.FAILED, message: 'Adresse mail déjà utilisée' })
-
-        // const response = await axios.post<{ username: string, password: string }>(`${process.env.API_HOSTNAME!}/`, { name: `${first_name} ${last_name}`, phone: `${code}${phone}`, email })
-        // const { username, password } = response.data
-        const username = generateString(10)
-        const password = generateString(10)
+        const response = await axios.post<{ username: string, password: string }>(`${process.env.API_HOSTNAME!}/users/create`, { name: `${first_name} ${last_name}`, phone: `${code}${phone}`, email })
+        console.log(response.data)
+        const { username, password } = response.data
+        // const username = generateString(10)
+        // const password = generateString(10)
         sendMail({
             to: email,
             subject: 'Bienvenue chez Hiala',

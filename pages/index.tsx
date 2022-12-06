@@ -1,4 +1,4 @@
-import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, EnvelopeIcon, MapPinIcon, PhoneIcon, PlayIcon } from '@heroicons/react/24/outline'
+import { ArrowDownOnSquareIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, EnvelopeIcon, MapPinIcon, PhoneIcon, PlayIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { ReactElement, useEffect, useState } from 'react'
 
@@ -108,8 +108,9 @@ const HomePage: NextPageWithLayout = () => {
                 Enregistrez-vous et démarrez un essai gratuit.
               </div>
 
-              <div className="hidden md:block">
+              <div className="hidden md:flex gap-4">
                 <GetStarted />
+                <a href="/files/app.apk"><Button color="night">Télécharger l'application <ArrowDownOnSquareIcon className='w-6 inline-block opacity-50' /></Button></a>
               </div>
             </div>
 
@@ -125,8 +126,9 @@ const HomePage: NextPageWithLayout = () => {
                 <div className="absolute z-0 top-0 right-0 rounded-[45px] bg-primary/10 shadow-lg shadow-primary/10 ratio-4by3 w-3/5" />
               </div>
 
-              <div className="text-center mt-[39.13px] md:hidden">
+              <div className="text-center flex mt-[39.13px] md:hidden gap-4">
                 <GetStarted />
+                <a href="/files/app.apk"><Button color="night">Télécharger l'application <ArrowDownOnSquareIcon className='w-6 inline-block opacity-50' /></Button></a>
               </div>
             </div>
           </div>

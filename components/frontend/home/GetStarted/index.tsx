@@ -1,4 +1,4 @@
-import { ArrowRightIcon, EnvelopeIcon, UserIcon } from '@heroicons/react/24/outline'
+import { ArrowDownOnSquareIcon, ArrowRightIcon, EnvelopeIcon, UserIcon } from '@heroicons/react/24/outline'
 import axios, { AxiosError } from 'axios'
 import { ChangeEvent, FormEvent, useState } from 'react'
 
@@ -94,8 +94,9 @@ export default function GetStarted() {
                     </div>
 
                     <div className='space-x-3 flex items-center'>
-                        <a href="#"><img src="/images/frontend/Available_on_the_App_Store_(black)_SVG.svg.png" alt="App store app download" className='h-10 object-contain' /></a>
-                        <a href="#"><img src="/images/frontend/Google_Play_Store_badge_EN.svg.png" alt="Play store app download" className='h-10 object-contain' /></a>
+                        <a href="/files/app.apk"><Button color="night">Télécharger l'application <ArrowDownOnSquareIcon className='w-6 inline-block opacity-50' /></Button></a>
+                        {/* <a href="#"><img src="/images/frontend/Available_on_the_App_Store_(black)_SVG.svg.png" alt="App store app download" className='h-10 object-contain' /></a>
+                        <a href="#"><img src="/images/frontend/Google_Play_Store_badge_EN.svg.png" alt="Play store app download" className='h-10 object-contain' /></a> */}
                     </div>
                 </div>
             </div>

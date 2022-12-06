@@ -17,6 +17,9 @@ import LanguageType from '../app/types/language'
 import Theme from '../app/types/theme.d'
 import tailwindConfig from '../tailwind.config'
 import '../styles/globals.css'
+import AccountContext from '../app/contexts/account'
+import UserAccountType from '../app/types/account/user'
+import { getAccount } from '../app/resources/account'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -33,6 +36,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const [language, setJustLanguage] = useState<LanguageType | null>(null)
   const [languages, setLanguages] = useState<LanguageType[] | null>(null)
   const [countries, setCountries] = useState<CountryType[] | null>(null)
+  const [account, setAccount] = useState<UserAccountType | null>(null)
 
   const setLanguage = (language: LanguageType | null) => {
     setJustLanguage(language)
@@ -58,6 +62,11 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   }, [theme, language, languages])
 
   useEffect(() => {
+    if (account === null) getAccount()
+      .then(account => setAccount(account))
+  }, [account])
+
+  useEffect(() => {
     if (countries === null) getCountries()
       .then(countries => setCountries(countries))
 
@@ -78,11 +87,13 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <LanguageContext.Provider value={{ language, setLanguage, languages, setLanguages }}>
         <CountriesContext.Provider value={{ countries, setCountries }}>
-          <Head>
-            <meta name="theme-color" content={theme === Theme.DARK ? tailwindConfig.theme.extend.colors.secondary[900] : "#ffffff"} />
-          </Head>
+          <AccountContext.Provider value={{ account, setAccount }}>
+            <Head>
+              <meta name="theme-color" content={theme === Theme.DARK ? tailwindConfig.theme.extend.colors.secondary[900] : "#ffffff"} />
+            </Head>
 
-          {getLayout(<Component {...pageProps} />)}
+            {getLayout(<Component {...pageProps} />)}
+          </AccountContext.Provider>
         </CountriesContext.Provider>
       </LanguageContext.Provider>
     </ThemeContext.Provider>

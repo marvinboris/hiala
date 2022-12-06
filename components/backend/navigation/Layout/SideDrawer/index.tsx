@@ -19,20 +19,16 @@ export default function SideDrawer() {
     return <Transition show={open || (width !== undefined && width > 768)} as={Fragment}>
         <div className='fixed inset-0 md:relative top-0 z-40 min-h-screen md:block'>
             <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
-                <div className="absolute md:relative w-[230px] z-0 h-full flex flex-col pt-[18px] pb-[95px] px-5 bg-white after:absolute after:inset-0 after:bg-secondary-500/10 after:-z-10">
-                    <div className="mb-[110px] w-[130px] h-[79px] flex items-center"><Link href='/'><Logo /></Link></div>
+                <div className="absolute md:relative w-[280px] z-0 h-full flex flex-col pt-[18px] pb-[95px] px-5 bg-white after:absolute after:inset-0 after:bg-secondary-500/10 after:-z-10">
+                    <div className="mb-[113px] w-[130px] h-[79px] flex items-center"><Link href='/'><Logo /></Link></div>
 
                     <div className="flex-1 flex flex-col">
                         <div>
-                            <div className="mb-[47px]">
-                                <NavItem icon={HomeIcon} href='/' main>Visit Website</NavItem>
-                            </div>
-
                             <div className="space-y-3">
-                                <NavItem icon={ComputerDesktopIcon} href='/customer/dashboard'>Dashboard</NavItem>
-                                <NavItem icon={DocumentDuplicateIcon} href='/customer/tickets'>My Tickets</NavItem>
-                                <NavItem icon={DocumentPlusIcon} href='/customer/prizes'>My Prizes</NavItem>
-                                <NavItem icon={AdjustmentsHorizontalIcon} href='/customer/settings'>Settings</NavItem>
+                                <NavItem icon={ComputerDesktopIcon} href='/user/dashboard'>Tableau de bord</NavItem>
+                                <NavItem icon={DocumentDuplicateIcon} href='/user/tickets'>My Tickets</NavItem>
+                                <NavItem icon={DocumentPlusIcon} href='/user/prizes'>My Prizes</NavItem>
+                                <NavItem icon={AdjustmentsHorizontalIcon} href='/user/settings'>Settings</NavItem>
                             </div>
                         </div>
 

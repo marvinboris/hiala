@@ -13,7 +13,7 @@ type ButtonProps = React.ComponentProps<'button'> & {
 export default function Button({ color = 'primary', size = '', icon, children, onClick }: ButtonProps) {
     const Icon = icon
 
-    return <button onClick={onClick} className={classNames(`btn btn-${color} group`, icon ? 'btn-icon' : '', size === 'sm' ? 'btn-sm' : '')}>
+    return <button onClick={onClick} className={classNames(`btn btn-${color} group`, icon ? 'btn-icon' : 'px-5', size === 'sm' ? 'btn-sm' : '')}>
         <span className={size === 'sm' ? '' : 'font-bold'}>{children}</span>
 
         {Icon && <span className='inline-flex items-center'>

@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
 
-import CustomerAccountType from '../types/account/customer';
+import CustomerAccountType from '../types/account/user';
 
 type Type = CustomerAccountType | null
 

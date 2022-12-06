@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import CustomerAccountType from '../types/account/customer'
+import CustomerAccountType from '../types/account/user'
 
 export const getAccount = async () => {
     return {
