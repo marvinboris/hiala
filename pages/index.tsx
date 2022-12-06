@@ -104,13 +104,20 @@ const HomePage: NextPageWithLayout = () => {
               </div>
 
               <div className="mb-[26.89px] md:mb-[71px] md:pr-[70px]">
-                Regardez vos séries, films et programmes favoris où vous voulez, quand vous voulez.<br /><br />
-                Enregistrez-vous et démarrez un essai gratuit.
+                <div>
+                  Regardez vos séries, films et programmes favoris où vous voulez, quand vous voulez.<br /><br />
+                  Enregistrez-vous et démarrez un essai gratuit ou téléchargez directement l'application si vous avez déjà un compte.
+                </div>
+
+                <div className='space-x-3 hidden md:flex items-center mt-8'>
+                  <a href="/files/hiala.apk"><img src="/images/frontend/Google_Play_Store_badge_EN.svg.png" alt="Play store app download" className='h-10 object-contain' /></a>
+                  <a href="#"><img src="/images/frontend/Available_on_the_App_Store_(black)_SVG.svg.png" alt="App store app download" className='h-10 object-contain' /></a>
+                </div>
               </div>
 
-              <div className="hidden md:flex gap-4">
+              <div className="hidden md:flex">
                 <GetStarted />
-                <a href="/files/app.apk"><Button color="night">Télécharger l'application <ArrowDownOnSquareIcon className='w-6 inline-block opacity-50' /></Button></a>
+                {/* <a href="/files/hiala.apk"><Button color="night">Télécharger l'application <ArrowDownOnSquareIcon className='w-6 inline-block opacity-50' /></Button></a> */}
               </div>
             </div>
 
@@ -128,7 +135,7 @@ const HomePage: NextPageWithLayout = () => {
 
               <div className="text-center flex mt-[39.13px] md:hidden gap-4">
                 <GetStarted />
-                <a href="/files/app.apk"><Button color="night">Télécharger l'application <ArrowDownOnSquareIcon className='w-6 inline-block opacity-50' /></Button></a>
+                {/* <a href="/files/hiala.apk"><Button color="night">Télécharger l'application <ArrowDownOnSquareIcon className='w-6 inline-block opacity-50' /></Button></a> */}
               </div>
             </div>
           </div>

@@ -15,11 +15,11 @@ export default async function handler(
 ) {
     const { first_name, last_name, email, code, phone } = req.body
     try {
-        const response = await axios.post<{ username: string, password: string }>(`${process.env.API_HOSTNAME!}/users/create`, { name: `${first_name} ${last_name}`, phone: `${code}${phone}`, email })
-        console.log(response.data)
-        const { username, password } = response.data
-        // const username = generateString(10)
-        // const password = generateString(10)
+        // const response = await axios.post<{ username: string, password: string }>(`${process.env.API_HOSTNAME!}/users/create`, { name: `${first_name} ${last_name}`, phone: `${code}${phone}`, email })
+        // console.log(response.data)
+        // const { username, password } = response.data
+        const username = generateString(10)
+        const password = generateString(10)
         sendMail({
             to: email,
             subject: 'Bienvenue chez Hiala',
